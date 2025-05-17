@@ -24,21 +24,15 @@ city_map = {
 }
 finish='Theater'
 optimum={}
-print(list(city_map[list(city_map)[0]].values())[0])
-print(list(city_map))
 for i in range(len(city_map)):
     optimum[list(city_map)[i]]=1000000+i
-# print(optimum[city_map[list(city_map)[0]][0]])
 optimum[list(city_map)[0]]=0
-# print(optimum[list(city_map)[5]])
 last={}
 for i in range(len(list(optimum))):
     last[list(optimum)[i]]=0
-# print(last)
 for I in range(len(optimum)):
     for j in range(len(optimum)):
         for k in range(len(city_map[list(city_map)[j]])):
-            print(list(city_map)[j])
             if optimum[list(city_map)[j]]>optimum[list(city_map[list(city_map)[j]])[k]]+list(city_map[list(city_map)[j]].values())[k]:
                 optimum[list(city_map)[j]]=optimum[list(city_map[list(city_map)[j]])[k]]+list(city_map[list(city_map)[j]].values())[k]
                 last[list(optimum)[j]]=list(city_map[list(optimum)[j]])[k]

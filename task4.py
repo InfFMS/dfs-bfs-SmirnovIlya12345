@@ -31,3 +31,35 @@
 # 1 → 2 → 3 → 1 (цикл!)
 # Вывод:
 # -1
+print('Enter the number of courses and dependences')
+pre=input()
+numcor=int(pre.split()[0])
+numdep=int(pre.split()[1])
+print('Enter dependences')
+deps=[]
+for i in range(numdep):
+    preroads=input()
+    deps.append([int(preroads.split()[0]),int(preroads.split()[1])])
+print(numcor,numdep,deps)
+free=[]
+order=[]
+c=0
+while len(order)<numcor:
+    for i in range(1,numcor+1):
+        if i not in order:
+            c=0
+            for j in range(len(deps)):
+                if deps[j][1]==i and deps[j][0] not in order:
+                    c=1
+                    break
+            if c==0:
+                free.append(i)
+    if free==[]:
+        print(-1)
+        break
+    else:
+        print(free,order)
+        order.append(free[0])
+        free.remove(free[0])
+if len(order)==numcor:
+    print(order)
